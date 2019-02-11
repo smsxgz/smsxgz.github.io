@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://smsxgz.github.io/sitemap.xml
