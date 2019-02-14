@@ -6,10 +6,19 @@
     <description>Recent content in Tags on Blog of smsxgz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 Feb 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://smsxgz.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Algorithm</title>
+      <link>https://smsxgz.github.io/tags/algorithm/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/tags/algorithm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Euclidean geometry</title>
@@ -17,6 +26,15 @@
       <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
       
       <guid>https://smsxgz.github.io/tags/euclidean-geometry/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Project Euler</title>
+      <link>https://smsxgz.github.io/tags/project-euler/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/tags/project-euler/</guid>
       <description></description>
     </item>
     

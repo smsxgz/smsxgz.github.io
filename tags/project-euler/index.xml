@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Blog of smsxgz</title>
-    <link>https://smsxgz.github.io/post/</link>
-    <description>Recent content in Posts on Blog of smsxgz</description>
+    <title>Project Euler on Blog of smsxgz</title>
+    <link>https://smsxgz.github.io/tags/project-euler/</link>
+    <description>Recent content in Project Euler on Blog of smsxgz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 12 Feb 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://smsxgz.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://smsxgz.github.io/tags/project-euler/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -24,27 +24,6 @@ After that, we present a algorithm which is a modified version of first algorith
 &lt;!-- and can be viewed as a kind of divide-and-conquer algorithm. --&gt;
 &lt;!-- Moreover, this methodology is common in number theory problems in [Project Euler](https://projecteuler.net),
 and we show the power of this methodology by two examples at last. --&gt;&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Materials for Python learning</title>
-      <link>https://smsxgz.github.io/post/python/ref/</link>
-      <pubDate>Mon, 11 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://smsxgz.github.io/post/python/ref/</guid>
-      <description>&lt;p&gt;My own list of materials for Python learning. Updating.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Euclidean geometry problems (1)</title>
-      <link>https://smsxgz.github.io/post/geometry/geometry_1/</link>
-      <pubDate>Sun, 10 Feb 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://smsxgz.github.io/post/geometry/geometry_1/</guid>
-      <description>&lt;div class=&#39;align-center&#39;&gt;
-  &lt;p&gt;&lt;img src=&#34;https://smsxgz.github.io/figure/2.11/problem.png&#34; alt=&#34;img&#34; title=&#34;img&#34; /&gt;&lt;/p&gt;
-
-&lt;/div&gt;</description>
     </item>
     
   </channel>
