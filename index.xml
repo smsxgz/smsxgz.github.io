@@ -32,10 +32,12 @@
       <description>&lt;p&gt;In this article, we introduce an algorithm proposed by Jakub Pawlewicz &lt;a href=&#34;#ref01&#34;&gt;[1]&lt;/a&gt; to count square free numbers not exceeding $n$ efficiently.&lt;/p&gt;
 
 &lt;p&gt;We first introduce a well-known algorithm with time complexity $\tilde{\mathcal{O}}(\sqrt{n})$.
-After that, we present a algorithm which is a modified version of first algorithm with time complexity $\tilde{\mathcal{O}}(n^{2/5})$ following from &lt;a href=&#34;#ref01&#34;&gt;[1]&lt;/a&gt;.
+After that, we present a algorithm which is a modified version of first algorithm with time complexity $\tilde{\mathcal{O}}(n^{2/5})$ following from &lt;a href=&#34;#ref01&#34;&gt;[1]&lt;/a&gt;.&lt;/p&gt;
+
 &lt;!-- and can be viewed as a kind of divide-and-conquer algorithm. --&gt;
+
 &lt;!-- Moreover, this methodology is common in number theory problems in [Project Euler](https://projecteuler.net),
-and we show the power of this methodology by two examples at last. --&gt;&lt;/p&gt;</description>
+and we show the power of this methodology by two examples at last. --&gt;</description>
     </item>
     
     <item>
