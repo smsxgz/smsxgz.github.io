@@ -6,10 +6,26 @@
     <description>Recent content on Blog of smsxgz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 Feb 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Mar 2019 21:31:11 +0800</lastBuildDate>
     
 	<atom:link href="https://smsxgz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>A note for command `convert`</title>
+      <link>https://smsxgz.github.io/post/ubuntu/convert_note/</link>
+      <pubDate>Sun, 03 Mar 2019 21:31:11 +0800</pubDate>
+      
+      <guid>https://smsxgz.github.io/post/ubuntu/convert_note/</guid>
+      <description>&lt;div class=&#34;admonition failure&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;failure&lt;/p&gt;
+  &lt;p&gt;&lt;code style=display:block&gt;
+$ convert -density 300 example.eps example.png&lt;br /&gt;
+convert-im6.q16: not authorized `example.eps&amp;rsquo; @ error/constitute.c/ReadImage/412.&lt;br /&gt;
+convert-im6.q16: no images defined `example.png&amp;rsquo; @ error/convert.c/ConvertImageCommand/3258.
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>Euclidean geometric problems (2)</title>
@@ -86,7 +102,7 @@ About me My nickname is smsxgz. &amp;lsquo;SMS&amp;rsquo; is an abbreviation of 
       <description> 2019-01-25: All achievements of Immense Army
   
  2019-02-12: 《斜屋犯罪》 岛田庄司
- 2019-02-18: 《圈套》(2000)  </description>
+ 2019-02-18: 《圈套》(2000) 2019-02-21: 《圈套2》(2002) 2019-02-22: 《圈套3》(2003) 2019-02-25: 《绝世千金》(2019)  </description>
     </item>
     
   </channel>
