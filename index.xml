@@ -6,10 +6,19 @@
     <description>Recent content on Blog of smsxgz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 03 Mar 2019 21:31:11 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://smsxgz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Interesting problems from AMM</title>
+      <link>https://smsxgz.github.io/post/amm/problems_from_amm/</link>
+      <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/post/amm/problems_from_amm/</guid>
+      <description>&lt;p&gt;Following are some interesting problems from &lt;em&gt;The American Mathematical Monthly&lt;/em&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>A note for command `convert`</title>
@@ -102,7 +111,7 @@ About me My nickname is smsxgz. &amp;lsquo;SMS&amp;rsquo; is an abbreviation of 
       <description> 2019-01-25: All achievements of Immense Army
   
  2019-02-12: 《斜屋犯罪》 岛田庄司
- 2019-02-18: 《圈套》(2000) 2019-02-21: 《圈套2》(2002) 2019-02-22: 《圈套3》(2003) 2019-02-25: 《绝世千金》(2019)  </description>
+ 2019-02-18: 《圈套》(Trick)(2000) 2019-02-21: 《圈套2》(Trick2)(2002) 2019-02-22: 《圈套3》(Trick3)(2003) 2019-02-25: 《绝世千金》(2019) 2019-03-04: 《圈套》(Trap)(2019)  </description>
     </item>
     
   </channel>
