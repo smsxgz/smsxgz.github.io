@@ -45,7 +45,7 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://smsxgz.github.io/" />
 
-<meta property="og:updated_time" content="2019-03-05T00:00:00&#43;00:00"/>
+<meta property="og:updated_time" content="2019-03-24T00:00:00&#43;00:00"/>
 
 <meta itemprop="name" content="Blog of smsxgz">
 <meta itemprop="description" content="">
@@ -117,6 +117,37 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/math/minimax/">Proof for Minimax Theorem</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> Mar 24, 2019 </span>
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><div class="admonition tip"><p class="admonition-title">Von Neumann&#39;s minimax theorem (1928)</p>
+  <p>Let $X$ and $Y$ be compact convex sets. Suppose that $f:X \times Y \rightarrow \mathbb{R}$ is a continuous function that satisfies:<br />
+1. $f(\cdot, y): X \rightarrow \mathbb{R}$ is convex for any fixed $y \in Y$,<br />
+2. $f(x, \cdot): Y \rightarrow \mathbb{R}$ is concave for any fixed $x \in X$.<br />
+Then, we have that</p>
+
+<div>$$\begin{equation}
+\min_{x \in X} \max_{y \in Y} f(x, y) = \max_{y \in Y} \min_{x \in X} f(x, y)
+\end{equation}$$</div>
+
+</div>
+<br>
+Following proof is from Hidetoshi Komiya [1].</p>
+    </div>
+    <div class="read-more">
+      <a href="/post/math/minimax/" class="read-more-link">Read more..</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/amm/problems_from_amm/">Interesting problems from AMM</a></h1>
@@ -211,25 +242,6 @@ and we show the power of this methodology by two examples at last. -->
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/python/ref/">Materials for Python learning</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> Feb 11, 2019 </span>
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p>My own list of materials for Python learning. Updating.</p>
-    </div>
-    <div class="read-more">
-      <a href="/post/python/ref/" class="read-more-link">Read more..</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -287,7 +299,6 @@ and we show the power of this methodology by two examples at last. -->
   <script type="text/javascript">
     window.MathJax = {
       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
-      TeX: {equationNumbers: {autoNumber: "AMS"}},
       showProcessingMessages: false,
       messageStyle: 'none'
     };

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>math on Blog of smsxgz</title>
+    <link>https://smsxgz.github.io/tags/math/</link>
+    <description>Recent content in math on Blog of smsxgz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 24 Mar 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://smsxgz.github.io/tags/math/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Proof for Minimax Theorem</title>
+      <link>https://smsxgz.github.io/post/math/minimax/</link>
+      <pubDate>Sun, 24 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/post/math/minimax/</guid>
+      <description>&lt;p&gt;&lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;Von Neumann&amp;#39;s minimax theorem (1928)&lt;/p&gt;
+  &lt;p&gt;Let $X$ and $Y$ be compact convex sets. Suppose that $f:X \times Y \rightarrow \mathbb{R}$ is a continuous function that satisfies:&lt;br /&gt;
+1. $f(\cdot, y): X \rightarrow \mathbb{R}$ is convex for any fixed $y \in Y$,&lt;br /&gt;
+2. $f(x, \cdot): Y \rightarrow \mathbb{R}$ is concave for any fixed $x \in X$.&lt;br /&gt;
+Then, we have that&lt;/p&gt;
+
+&lt;div&gt;$$\begin{equation}
+\min_{x \in X} \max_{y \in Y} f(x, y) = \max_{y \in Y} \min_{x \in X} f(x, y)
+\end{equation}$$&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;br&gt;
+Following proof is from Hidetoshi Komiya [1].&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

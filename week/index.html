@@ -16,10 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="smsxgz" /><meta name="description" content=" 2019-01-25: All achievements of Immense Army
-  
- 2019-02-12: 《斜屋犯罪》 岛田庄司
- 2019-02-18: 《圈套》(Trick)(2000) 2019-02-21: 《圈套2》(Trick2)(2002) 2019-02-22: 《圈套3》(Trick3)(2003) 2019-02-25: 《绝世千金》(2019) 2019-03-04: 《圈套》(Trap)(2019) 2019-03-15: 《刑警zero》(刑事ゼロ)(2019) 2019-03-18: 《狂赌之渊》(賭ケグルイ)(Live-action)(2018)  " />
+<meta name="author" content="smsxgz" /><meta name="description" content="本周帮ldc和jh做了几个实验，精调了下SGD的学习率，确认了他们目前的方法的确可以涨点（最终eval和mixup差不多）。但是他们的方法对我而言有种莫名的撕裂感，想到了一个改进的方法，但没有想到合适的实现方法，列为下周事项。 阅读了下[1]的算法和实验，他们在神经网络上的实验非常奇怪，下周尝试一下效果。 阅读了minimax theorem的证明[2]，比想象中困难很多，下周三前预计读完[3]，在组会上分享一下。这篇文章是HDP书中一个定理的推广，非常有趣。如果有时间准备slide，顺便会讲一下[4]。 下周开始，要多花点时间在毕业论文上。  [1] Conformal Symplectic and Relativistic Optimization [2] ELEMENTARY PROOF FOR SION&amp;rsquo;S MINIMAX THEOREM [3] Optimal terminal dimensionality reduction in Euclidean space [4] Nonlinear dimension reduction via outer Bi-Lipschitz extensions" />
 
 
 
@@ -29,7 +26,7 @@
 <meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://smsxgz.github.io/achievements/" />
+<link rel="canonical" href="https://smsxgz.github.io/week/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -42,33 +39,24 @@
 
 
 <meta property="og:title" content="" />
-<meta property="og:description" content=" 2019-01-25: All achievements of Immense Army
-  
- 2019-02-12: 《斜屋犯罪》 岛田庄司
- 2019-02-18: 《圈套》(Trick)(2000) 2019-02-21: 《圈套2》(Trick2)(2002) 2019-02-22: 《圈套3》(Trick3)(2003) 2019-02-25: 《绝世千金》(2019) 2019-03-04: 《圈套》(Trap)(2019) 2019-03-15: 《刑警zero》(刑事ゼロ)(2019) 2019-03-18: 《狂赌之渊》(賭ケグルイ)(Live-action)(2018)  " />
+<meta property="og:description" content="本周帮ldc和jh做了几个实验，精调了下SGD的学习率，确认了他们目前的方法的确可以涨点（最终eval和mixup差不多）。但是他们的方法对我而言有种莫名的撕裂感，想到了一个改进的方法，但没有想到合适的实现方法，列为下周事项。 阅读了下[1]的算法和实验，他们在神经网络上的实验非常奇怪，下周尝试一下效果。 阅读了minimax theorem的证明[2]，比想象中困难很多，下周三前预计读完[3]，在组会上分享一下。这篇文章是HDP书中一个定理的推广，非常有趣。如果有时间准备slide，顺便会讲一下[4]。 下周开始，要多花点时间在毕业论文上。  [1] Conformal Symplectic and Relativistic Optimization [2] ELEMENTARY PROOF FOR SION&rsquo;S MINIMAX THEOREM [3] Optimal terminal dimensionality reduction in Euclidean space [4] Nonlinear dimension reduction via outer Bi-Lipschitz extensions" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://smsxgz.github.io/achievements/" />
+<meta property="og:url" content="https://smsxgz.github.io/week/" />
 
 
 <meta itemprop="name" content="">
-<meta itemprop="description" content=" 2019-01-25: All achievements of Immense Army
-  
- 2019-02-12: 《斜屋犯罪》 岛田庄司
- 2019-02-18: 《圈套》(Trick)(2000) 2019-02-21: 《圈套2》(Trick2)(2002) 2019-02-22: 《圈套3》(Trick3)(2003) 2019-02-25: 《绝世千金》(2019) 2019-03-04: 《圈套》(Trap)(2019) 2019-03-15: 《刑警zero》(刑事ゼロ)(2019) 2019-03-18: 《狂赌之渊》(賭ケグルイ)(Live-action)(2018)  ">
+<meta itemprop="description" content="本周帮ldc和jh做了几个实验，精调了下SGD的学习率，确认了他们目前的方法的确可以涨点（最终eval和mixup差不多）。但是他们的方法对我而言有种莫名的撕裂感，想到了一个改进的方法，但没有想到合适的实现方法，列为下周事项。 阅读了下[1]的算法和实验，他们在神经网络上的实验非常奇怪，下周尝试一下效果。 阅读了minimax theorem的证明[2]，比想象中困难很多，下周三前预计读完[3]，在组会上分享一下。这篇文章是HDP书中一个定理的推广，非常有趣。如果有时间准备slide，顺便会讲一下[4]。 下周开始，要多花点时间在毕业论文上。  [1] Conformal Symplectic and Relativistic Optimization [2] ELEMENTARY PROOF FOR SION&rsquo;S MINIMAX THEOREM [3] Optimal terminal dimensionality reduction in Euclidean space [4] Nonlinear dimension reduction via outer Bi-Lipschitz extensions">
 
 
 
-<meta itemprop="wordCount" content="23">
+<meta itemprop="wordCount" content="34">
 
 
 
 <meta itemprop="keywords" content="" />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content=""/>
-<meta name="twitter:description" content=" 2019-01-25: All achievements of Immense Army
-  
- 2019-02-12: 《斜屋犯罪》 岛田庄司
- 2019-02-18: 《圈套》(Trick)(2000) 2019-02-21: 《圈套2》(Trick2)(2002) 2019-02-22: 《圈套3》(Trick3)(2003) 2019-02-25: 《绝世千金》(2019) 2019-03-04: 《圈套》(Trap)(2019) 2019-03-15: 《刑警zero》(刑事ゼロ)(2019) 2019-03-18: 《狂赌之渊》(賭ケグルイ)(Live-action)(2018)  "/>
+<meta name="twitter:description" content="本周帮ldc和jh做了几个实验，精调了下SGD的学习率，确认了他们目前的方法的确可以涨点（最终eval和mixup差不多）。但是他们的方法对我而言有种莫名的撕裂感，想到了一个改进的方法，但没有想到合适的实现方法，列为下周事项。 阅读了下[1]的算法和实验，他们在神经网络上的实验非常奇怪，下周尝试一下效果。 阅读了minimax theorem的证明[2]，比想象中困难很多，下周三前预计读完[3]，在组会上分享一下。这篇文章是HDP书中一个定理的推广，非常有趣。如果有时间准备slide，顺便会讲一下[4]。 下周开始，要多花点时间在毕业论文上。  [1] Conformal Symplectic and Relativistic Optimization [2] ELEMENTARY PROOF FOR SION&rsquo;S MINIMAX THEOREM [3] Optimal terminal dimensionality reduction in Euclidean space [4] Nonlinear dimension reduction via outer Bi-Lipschitz extensions"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -134,23 +122,17 @@
         <div id="content" class="content">
           <article class="post">
   <div class="post-content">
-    <ul>
-<li>2019-01-25: All achievements of <a href="https://www.kongregate.com/games/martinirosso/immense-army"><em>Immense Army</em></a><br />
-<img src="/figure/achievements/immense_army.png" alt="img" title="immense_army" /></li>
-</ul>
+    <ol>
+<li>本周帮ldc和jh做了几个实验，精调了下SGD的学习率，确认了他们目前的方法的确可以涨点（最终eval和mixup差不多）。但是他们的方法对我而言有种莫名的撕裂感，想到了一个改进的方法，但没有想到合适的实现方法，列为下周事项。</li>
+<li>阅读了下[1]的算法和实验，他们在神经网络上的实验非常奇怪，下周尝试一下效果。</li>
+<li>阅读了minimax theorem的证明[2]，比想象中困难很多，下周三前预计读完[3]，在组会上分享一下。这篇文章是HDP书中一个定理的推广，非常有趣。如果有时间准备slide，顺便会讲一下[4]。</li>
+<li>下周开始，要多花点时间在毕业论文上。</li>
+</ol>
 
-<p><br></p>
-
-<ul>
-<li>2019-02-12: 《斜屋犯罪》 岛田庄司<br /></li>
-<li>2019-02-18: 《圈套》(Trick)(2000)</li>
-<li>2019-02-21: 《圈套2》(Trick2)(2002)</li>
-<li>2019-02-22: 《圈套3》(Trick3)(2003)</li>
-<li>2019-02-25: 《绝世千金》(2019)</li>
-<li>2019-03-04: 《圈套》(Trap)(2019)</li>
-<li>2019-03-15: 《刑警zero》(刑事ゼロ)(2019)</li>
-<li>2019-03-18: 《狂赌之渊》(賭ケグルイ)(Live-action)(2018)</li>
-</ul>
+<p>[1] Conformal Symplectic and Relativistic Optimization
+[2] ELEMENTARY PROOF FOR SION&rsquo;S MINIMAX THEOREM
+[3] Optimal terminal dimensionality reduction in Euclidean space
+[4] Nonlinear dimension reduction via outer Bi-Lipschitz extensions</p>
 
   </div>
 </article>

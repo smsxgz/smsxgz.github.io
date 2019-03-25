@@ -6,10 +6,31 @@
     <description>Recent content on Blog of smsxgz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 05 Mar 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 Mar 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://smsxgz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Proof for Minimax Theorem</title>
+      <link>https://smsxgz.github.io/post/math/minimax/</link>
+      <pubDate>Sun, 24 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/post/math/minimax/</guid>
+      <description>&lt;p&gt;&lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;Von Neumann&amp;#39;s minimax theorem (1928)&lt;/p&gt;
+  &lt;p&gt;Let $X$ and $Y$ be compact convex sets. Suppose that $f:X \times Y \rightarrow \mathbb{R}$ is a continuous function that satisfies:&lt;br /&gt;
+1. $f(\cdot, y): X \rightarrow \mathbb{R}$ is convex for any fixed $y \in Y$,&lt;br /&gt;
+2. $f(x, \cdot): Y \rightarrow \mathbb{R}$ is concave for any fixed $x \in X$.&lt;br /&gt;
+Then, we have that&lt;/p&gt;
+
+&lt;div&gt;$$\begin{equation}
+\min_{x \in X} \max_{y \in Y} f(x, y) = \max_{y \in Y} \min_{x \in X} f(x, y)
+\end{equation}$$&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;br&gt;
+Following proof is from Hidetoshi Komiya [1].&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Interesting problems from AMM</title>
@@ -111,7 +132,16 @@ About me My nickname is smsxgz. &amp;lsquo;SMS&amp;rsquo; is an abbreviation of 
       <description> 2019-01-25: All achievements of Immense Army
   
  2019-02-12: 《斜屋犯罪》 岛田庄司
- 2019-02-18: 《圈套》(Trick)(2000) 2019-02-21: 《圈套2》(Trick2)(2002) 2019-02-22: 《圈套3》(Trick3)(2003) 2019-02-25: 《绝世千金》(2019) 2019-03-04: 《圈套》(Trap)(2019)  </description>
+ 2019-02-18: 《圈套》(Trick)(2000) 2019-02-21: 《圈套2》(Trick2)(2002) 2019-02-22: 《圈套3》(Trick3)(2003) 2019-02-25: 《绝世千金》(2019) 2019-03-04: 《圈套》(Trap)(2019) 2019-03-15: 《刑警zero》(刑事ゼロ)(2019) 2019-03-18: 《狂赌之渊》(賭ケグルイ)(Live-action)(2018)  </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://smsxgz.github.io/week/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/week/</guid>
+      <description>本周帮ldc和jh做了几个实验，精调了下SGD的学习率，确认了他们目前的方法的确可以涨点（最终eval和mixup差不多）。但是他们的方法对我而言有种莫名的撕裂感，想到了一个改进的方法，但没有想到合适的实现方法，列为下周事项。 阅读了下[1]的算法和实验，他们在神经网络上的实验非常奇怪，下周尝试一下效果。 阅读了minimax theorem的证明[2]，比想象中困难很多，下周三前预计读完[3]，在组会上分享一下。这篇文章是HDP书中一个定理的推广，非常有趣。如果有时间准备slide，顺便会讲一下[4]。 下周开始，要多花点时间在毕业论文上。  [1] Conformal Symplectic and Relativistic Optimization [2] ELEMENTARY PROOF FOR SION&amp;rsquo;S MINIMAX THEOREM [3] Optimal terminal dimensionality reduction in Euclidean space [4] Nonlinear dimension reduction via outer Bi-Lipschitz extensions</description>
     </item>
     
   </channel>

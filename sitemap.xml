@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://smsxgz.github.io/post/math/minimax/</loc>
+    <lastmod>2019-03-24T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://smsxgz.github.io/post/amm/problems_from_amm/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -57,6 +64,12 @@
   </url>
   
   <url>
+    <loc>https://smsxgz.github.io/week/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://smsxgz.github.io/tags/amm/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -72,7 +85,7 @@
   
   <url>
     <loc>https://smsxgz.github.io/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-03-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -92,7 +105,7 @@
   
   <url>
     <loc>https://smsxgz.github.io/post/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-03-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -107,6 +120,13 @@
   <url>
     <loc>https://smsxgz.github.io/tags/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://smsxgz.github.io/tags/math/</loc>
+    <lastmod>2019-03-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
