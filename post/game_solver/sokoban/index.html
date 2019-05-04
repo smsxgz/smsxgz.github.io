@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>A Sokoban solver - Blog of smsxgz</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="smsxgz" /><meta name="description" content="A Sokoban solver in Python.
+
+The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban.
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://smsxgz.github.io/post/game_solver/sokoban/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="A Sokoban solver" />
+<meta property="og:description" content="A Sokoban solver in Python.
+
+
+
+The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smsxgz.github.io/post/game_solver/sokoban/" />
+<meta property="article:published_time" content="2019-05-01T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-05-04T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="A Sokoban solver">
+<meta itemprop="description" content="A Sokoban solver in Python.
+
+
+
+The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban.">
+
+
+<meta itemprop="datePublished" content="2019-05-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-05-04T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="307">
+
+
+
+<meta itemprop="keywords" content="Game Solver,python," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="A Sokoban solver"/>
+<meta name="twitter:description" content="A Sokoban solver in Python.
+
+
+
+The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">smsxgz</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/achievements/">
+        <li class="mobile-menu-item">Achievements</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">smsxgz</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/achievements/">Achievements</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">A Sokoban solver</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> May 1, 2019 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#normalized-player-position">Normalized player position</a></li>
+<li><a href="#deadlocks">Deadlocks</a></li>
+<li><a href="#a-search-algorithm">A* search algorithm</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>A Sokoban solver in Python.</p>
+
+<p><center><img src="/figure/5.1/out_001.png" alt="drawing" style="width:500px;"/></center></p>
+
+<p>The codes can be found in <a href="https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban">https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban</a>.</p>
+
+<p>In following, we introduce some details in my implement of the solver of Sokoban.</p>
+
+<h3 id="normalized-player-position">Normalized player position</h3>
+
+<p>Consider that two states is equivalent if the boxes are at the same positions and the player positions are in the same player access area, so we can only store normalized player position. We use positions of boxes and top-left reachable position as our state to reduce the number of states in the search tree.</p>
+
+<h3 id="deadlocks">Deadlocks</h3>
+
+<p>We only consider the simple deadlocks from which a box never can be pushed to a goal, no matter where the other boxes are located in the board. Once we push a box into a square which is a deadlock, the state becomes unsolvable immediately.</p>
+
+<p>We detect the simple deadlocks by searching all squares where we can <strong>pull</strong> a box from one of the goals to. A simple breadth-first-searching is enough.</p>
+
+<h3 id="a-search-algorithm">A* search algorithm</h3>
+
+<p>We use a Fibonacci heap for the priority queue required in A* search algorithm. For each state, we store the information, including box positions, normalized player position, reachable position, available moves, f-score, g-score, in a node of the heap and employ a dictionary to record corresponding pointer to the corresponding node.</p>
+
+<p>It worth noting that <strong>standard</strong> binary heap, leftist heap and binomial heap are not qualified for the work here. In standard leftist heap or binomial heap, if we decrease value of a node, we may need to swap the value of some nodes instead of nodes themselves to fix the heap. Of course we can modify standard leftist heap or binomial heap to reach our needs, for example we can apply doubly linked list instead of singly linked list in standard binomial heap to make exchange nodes directly possible.</p>
+
+<p><br>
+<center><img src="/figure/5.1/sample.gif" alt="drawing" style="width:500px;"/></center></p>
+
+<h3 id="reference">Reference</h3>
+
+<ol>
+<li><a href="http://sokobano.de/wiki/index.php?title=Solver">http://sokobano.de/wiki/index.php?title=Solver</a></li>
+<li><a href="http://sokobano.de/wiki/index.php?title=How_to_detect_deadlocks">http://sokobano.de/wiki/index.php?title=How_to_detect_deadlocks</a></li>
+<li><a href="https://blog.csdn.net/yzf0011/article/details/60574388">https://blog.csdn.net/yzf0011/article/details/60574388</a> (Fibonacci heap)</li>
+<li><a href="https://github.com/natebrennand/Sokoban">https://github.com/natebrennand/Sokoban</a></li>
+<li><a href="https://en.wikipedia.org/wiki/A*_search_algorithm">https://en.wikipedia.org/wiki/A*_search_algorithm</a></li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">May 4, 2019</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">Email</span>
+    <span class="item-content">smsxgz at gmail dot com</span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/game-solver/">Game Solver</a>
+          <a href="/tags/python/">python</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/math/minimax/">
+            <span class="next-text nav-default">Proof for Minimax Theorem</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="smsxgz@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.github.com/smsxgz" class="iconfont icon-github" title="github"></a>
+      <a href="http://space.bilibili.com/10148759" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://smsxgz.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">smsxgz</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

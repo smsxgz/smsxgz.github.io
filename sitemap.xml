@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://smsxgz.github.io/post/game_solver/sokoban/</loc>
+    <lastmod>2019-05-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://smsxgz.github.io/post/math/minimax/</loc>
     <lastmod>2019-03-24T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -64,12 +71,6 @@
   </url>
   
   <url>
-    <loc>https://smsxgz.github.io/week/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://smsxgz.github.io/tags/amm/</loc>
     <lastmod>2019-03-05T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -85,7 +86,7 @@
   
   <url>
     <loc>https://smsxgz.github.io/</loc>
-    <lastmod>2019-03-24T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -104,8 +105,15 @@
   </url>
   
   <url>
+    <loc>https://smsxgz.github.io/tags/game-solver/</loc>
+    <lastmod>2019-05-04T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://smsxgz.github.io/post/</loc>
-    <lastmod>2019-03-24T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -140,7 +148,7 @@
   
   <url>
     <loc>https://smsxgz.github.io/tags/python/</loc>
-    <lastmod>2019-02-11T00:00:00+00:00</lastmod>
+    <lastmod>2019-05-04T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

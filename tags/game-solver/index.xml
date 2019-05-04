@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Game Solver on Blog of smsxgz</title>
+    <link>https://smsxgz.github.io/tags/game-solver/</link>
+    <description>Recent content in Game Solver on Blog of smsxgz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 01 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://smsxgz.github.io/tags/game-solver/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>A Sokoban solver</title>
+      <link>https://smsxgz.github.io/post/game_solver/sokoban/</link>
+      <pubDate>Wed, 01 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/post/game_solver/sokoban/</guid>
+      <description>&lt;p&gt;A Sokoban solver in Python.&lt;/p&gt;
+
+&lt;p&gt;&lt;center&gt;&lt;img src=&#34;https://smsxgz.github.io/figure/5.1/out_001.png&#34; alt=&#34;drawing&#34; style=&#34;width:500px;&#34;/&gt;&lt;/center&gt;&lt;/p&gt;
+
+&lt;p&gt;The codes can be found in &lt;a href=&#34;https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban&#34;&gt;https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
