@@ -6,10 +6,26 @@
     <description>Recent content on Blog of smsxgz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 01 May 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://smsxgz.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Sum of the Euler Totient function</title>
+      <link>https://smsxgz.github.io/post/pe/sum_of_the-euler_totient_function/</link>
+      <pubDate>Mon, 26 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/post/pe/sum_of_the-euler_totient_function/</guid>
+      <description>&lt;p&gt;In this article, we introduce an algorithms for computing sum of the Euler Totient function.
+Our approach completely comes from the approach in the &lt;a href=&#34;https://smsxgz.github.io/post/pe/counting_square_free_numbers/&#34;&gt;previous article&lt;/a&gt; about counting square free numbers.&lt;/p&gt;
+
+&lt;p&gt;The Euler totient function $\varphi(n)$ is defined as the number of positive integers less than $n$ which are co-prime with $n$. Our goal is to compute the sum of all values of the totient function up to a certain $N$&lt;/p&gt;
+
+&lt;div&gt;$$
+S(N) = \sum_{n=1}^N \varphi(n).
+$$&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>A Sokoban solver</title>

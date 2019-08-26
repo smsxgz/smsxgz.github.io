@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Sum of the Euler Totient function - Blog of smsxgz</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="smsxgz" /><meta name="description" content="In this article, we introduce an algorithms for computing sum of the Euler Totient function. Our approach completely comes from the approach in the previous article about counting square free numbers.
+The Euler totient function $\varphi(n)$ is defined as the number of positive integers less than $n$ which are co-prime with $n$. Our goal is to compute the sum of all values of the totient function up to a certain $N$
+$$ S(N) = \sum_{n=1}^N \varphi(n). $$" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://smsxgz.github.io/post/pe/sum_of_the-euler_totient_function/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="Sum of the Euler Totient function" />
+<meta property="og:description" content="In this article, we introduce an algorithms for computing sum of the Euler Totient function.
+Our approach completely comes from the approach in the previous article about counting square free numbers.
+
+The Euler totient function $\varphi(n)$ is defined as the number of positive integers less than $n$ which are co-prime with $n$. Our goal is to compute the sum of all values of the totient function up to a certain $N$
+
+$$
+S(N) = \sum_{n=1}^N \varphi(n).
+$$" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smsxgz.github.io/post/pe/sum_of_the-euler_totient_function/" />
+<meta property="article:published_time" content="2019-08-26T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-08-26T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="Sum of the Euler Totient function">
+<meta itemprop="description" content="In this article, we introduce an algorithms for computing sum of the Euler Totient function.
+Our approach completely comes from the approach in the previous article about counting square free numbers.
+
+The Euler totient function $\varphi(n)$ is defined as the number of positive integers less than $n$ which are co-prime with $n$. Our goal is to compute the sum of all values of the totient function up to a certain $N$
+
+$$
+S(N) = \sum_{n=1}^N \varphi(n).
+$$">
+
+
+<meta itemprop="datePublished" content="2019-08-26T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-08-26T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1002">
+
+
+
+<meta itemprop="keywords" content="Algorithm,Project Euler," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Sum of the Euler Totient function"/>
+<meta name="twitter:description" content="In this article, we introduce an algorithms for computing sum of the Euler Totient function.
+Our approach completely comes from the approach in the previous article about counting square free numbers.
+
+The Euler totient function $\varphi(n)$ is defined as the number of positive integers less than $n$ which are co-prime with $n$. Our goal is to compute the sum of all values of the totient function up to a certain $N$
+
+$$
+S(N) = \sum_{n=1}^N \varphi(n).
+$$"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">smsxgz</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/achievements/">
+        <li class="mobile-menu-item">Achievements</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">smsxgz</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/achievements/">Achievements</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Sum of the Euler Totient function</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> Aug 26, 2019 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#1-establishing-our-formula">1. Establishing our formula</a></li>
+<li><a href="#2-computing-mertens-function">2. Computing Mertens function</a></li>
+<li><a href="#3-the-code-of-our-algorithm">3. The code of our algorithm</a></li>
+<li><a href="#4-the-complexity">4. The complexity</a></li>
+<li><a href="#5-another-algorithm-from-beni-bogoşel-s-blog-https-mathproblems123-wordpress-com-2018-05-10-sum-of-the-euler-totient-function">5. Another algorithm from <a href="https://mathproblems123.wordpress.com/2018/05/10/sum-of-the-euler-totient-function">Beni Bogoşel&rsquo;s blog</a></a></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>In this article, we introduce an algorithms for computing sum of the Euler Totient function.
+Our approach completely comes from the approach in the <a href="https://smsxgz.github.io/post/pe/counting_square_free_numbers/">previous article</a> about counting square free numbers.</p>
+
+<p>The Euler totient function $\varphi(n)$ is defined as the number of positive integers less than $n$ which are co-prime with $n$. Our goal is to compute the sum of all values of the totient function up to a certain $N$</p>
+
+<div>$$
+S(N) = \sum_{n=1}^N \varphi(n).
+$$</div>
+
+<h2 id="1-establishing-our-formula">1. Establishing our formula</h2>
+
+<p>Note that</p>
+
+<div>$$
+\varphi(n) = \sum_{d \vert n} \mu(d) \frac{n}{d},
+$$</div>
+
+<p>where $\mu(d)$ is the <a href="https://en.wikipedia.org/wiki/M%C3%B6bius_function">Mobius function</a>.<br />
+Thus we can rewrite $S(N)$ as</p>
+
+<div style="font-size: 90%;">$$\begin{align}
+\notag S(N) &= \sum_{n=1}^N \sum_{d \vert n} \mu(d) \frac{n}{d} \\
+\notag &= \sum_{d=1}^N \frac{\mu(d)}{d} \sum_{d \vert n, n \le N} n \\
+\notag &= \sum_{d=1}^N \mu(d) \sum_{k \le \frac{N}{d}} k \\
+&= \frac{1}{2} \sum_{d=1}^N \mu(d) \left\lfloor \frac{N}{d} \right\rfloor \left( \left\lfloor \frac{N}{d} \right\rfloor + 1 \right)
+\end{align}$$</div>
+
+<p>For sufficiently large $D$, the value of $\left\lfloor \frac{N}{d} \right\rfloor$ with respect to
+$d &gt; D$ will not change frequently. Based on this observation, we break the sum in (1) into two part:
+$$S(N) = S_1(N) + S_2(N),$$
+where</p>
+
+<div>$$\begin{align*}
+S_1(N) &= \frac{1}{2} \sum_{1 \le d \le D}\mu(d)\left\lfloor \frac{N}{d} \right\rfloor \left( \left\lfloor \frac{N}{d} \right\rfloor + 1 \right), \\
+S_2(N) &= \frac{1}{2} \sum_{d > D}\mu(d)\left\lfloor \frac{N}{d} \right\rfloor \left( \left\lfloor \frac{N}{d} \right\rfloor + 1 \right).
+\end{align*}$$</div>
+
+<p>Rewrite the sum $S_2(N)$ as:</p>
+
+<div>$$\begin{align*}
+S_2(N) &= \frac{1}{2} \sum_{i} i(i+1) \sum_{d > D, \left\lfloor \frac{N}{d} \right\rfloor = i} \mu(d) \\
+&= \frac{1}{2} \sum_{i} i(i+1) \sum_{d > D, \frac{N}{i+1} < d \le \frac{N}{i}} \mu(d).
+\end{align*}$$</div>
+
+<p>Let $x_i = \left\lfloor \frac{N}{i} \right\rfloor$, $i \le I \le \sqrt{N}$ and $D = x_I$.
+Now the sum $S_2(N)$ can be simplified to:</p>
+
+<div style="font-size: 90%;">$$\begin{align}
+\notag S_2(N) &= \frac{1}{2} \sum_{i=1}^{I-1} i(i+1) \sum_{x_{i+1} < d \le x_i} \mu(d) \\
+\notag &= \frac{1}{2} \sum_{i=1}^{I-1} i(i+1) (M(x_i) - M(x_{i+1})) \\
+&= \sum_{i=1}^{I-1} i M(x_i) - \frac{I(I - 1)}{2}M(x_I),
+\end{align}$$</div>
+
+<p>where $M(x)$ is the <a href="https://en.wikipedia.org/wiki/Mertens_function">Mertens function</a>, i.e.,
+$M(x) = \sum_{i=1}^{\lfloor x \rfloor}\mu(i)$.</p>
+
+<h2 id="2-computing-mertens-function">2. Computing Mertens function</h2>
+
+<p>Applying the <a href="https://en.wikipedia.org/wiki/M%C3%B6bius_inversion_formula">Mobius inversion formula</a>, we know that $\sum_{d=1}^{x} M\left(\frac{x}{d}\right) = 1$, i.e.,</p>
+
+<p>$$M(x) = 1 - \sum_{d=2}^{x} M\left( \frac{x}{d} \right).$$</p>
+
+<p>Here, an important observation is that having all values $M(x/d)$ for $d \ge 2$, we
+are able to calculate $M(x)$ in time $\mathcal{O}(\sqrt{x})$.
+This is because there are at most $2\sqrt{x}$ different integers of the form $\lfloor x/d \rfloor$.</p>
+
+<p>Moreover, to compute $M(x_i)$ we need the values $M(x_i / d)$ for $d \ge 2$.
+If $x_i / d \le D$ then $M(x_i/d)$ was determined during the computation of $S_1(n)$.
+If $x_i / d &gt; D$ then
+$$\left\lfloor \frac{x_i}{d} \right\rfloor
+= \left\lfloor \frac{\left\lfloor \frac{N}{i} \right\rfloor}{d} \right\rfloor
+= \left\lfloor \frac{N}{i d} \right\rfloor,$$
+thus $M(x_i / d) = M(x_j)$ for $j = i d &lt; I$.</p>
+
+<p>It worth noting that it is important to compute $M(x_i)$ in a decreasing order.</p>
+
+<h2 id="3-the-code-of-our-algorithm">3. The code of our algorithm</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">euler_sum</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">Imax</span><span class="p">):</span>
+    <span class="n">D</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="n">Imax</span>
+
+    <span class="c1"># compute S1</span>
+    <span class="n">prime</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">mobius</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">D</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">prime</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+            <span class="k">continue</span>
+        <span class="n">mobius</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">D</span> <span class="o">//</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">prime</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">mobius</span><span class="p">[</span><span class="n">i</span> <span class="o">*</span> <span class="n">j</span><span class="p">]</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">D</span> <span class="o">//</span> <span class="p">(</span><span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">mobius</span><span class="p">[</span><span class="n">j</span> <span class="o">*</span> <span class="n">i</span> <span class="o">*</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="n">s1</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">D</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="n">i</span>
+        <span class="n">s1</span> <span class="o">+=</span> <span class="n">mobius</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">k</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># compute M(d), d = 1, ..., D</span>
+    <span class="n">M_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mobius</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+        <span class="n">M</span> <span class="o">+=</span> <span class="n">m</span>
+        <span class="n">M_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">M</span><span class="p">)</span>
+
+    <span class="c1"># compute M(n // i), i = Imax - 1, ..., 1</span>
+    <span class="n">Mxi_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">Mxi_sum</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Imax</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="n">Mxi</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">xi</span> <span class="o">=</span> <span class="n">N</span> <span class="o">//</span> <span class="n">i</span>
+
+        <span class="n">sqd</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sqrt</span><span class="p">(</span><span class="n">xi</span><span class="p">))</span>
+        <span class="c1"># we know that sqd &lt; D &lt;= xi</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">xi</span> <span class="o">//</span> <span class="p">(</span><span class="n">sqd</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">Mxi</span> <span class="o">-=</span> <span class="p">(</span><span class="n">xi</span> <span class="o">//</span> <span class="n">j</span> <span class="o">-</span> <span class="n">xi</span> <span class="o">//</span> <span class="p">(</span><span class="n">j</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="n">M_list</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sqd</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">xi</span> <span class="o">//</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="n">D</span><span class="p">:</span>
+                <span class="n">Mxi</span> <span class="o">-=</span> <span class="n">M_list</span><span class="p">[</span><span class="n">xi</span> <span class="o">//</span> <span class="n">j</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">Mxi</span> <span class="o">-=</span> <span class="n">Mxi_list</span><span class="p">[</span><span class="n">Imax</span> <span class="o">-</span> <span class="n">j</span> <span class="o">*</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">Mxi_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Mxi</span><span class="p">)</span>
+        <span class="n">Mxi_sum</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">Mxi</span>
+
+    <span class="c1"># compute S2</span>
+    <span class="n">s2</span> <span class="o">=</span> <span class="n">Mxi_sum</span> <span class="o">-</span> <span class="n">Imax</span> <span class="o">*</span> <span class="p">(</span><span class="n">Imax</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">M_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">s1</span> <span class="o">+</span> <span class="n">s2</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="4-the-complexity">4. The complexity</h2>
+
+<p>Let us estimate the time complexity of above algorithm.
+Computing $S_1(n)$ has time complexity $\mathcal{O}(D \log\log D).$
+The computation of $S_2(n)$ is dominated by the loop for computing $M(x_i)$.
+Therefore computing $S_2(n)$ has the time complexity:</p>
+
+<div>$$
+\sum_{i=1}^{I} \mathcal{O}(\sqrt{x_i}) = \sum_{i=1}^{I} \mathcal{O}\left(\sqrt{\frac{N}{i}}\right)
+= \mathcal{O} \left(\sqrt{N} \sum_{i=1}^{I} \frac{1}{\sqrt{i}} \right)
+= \mathcal{O}(N^{1/2}I^{1/2}).
+$$</div>
+
+<p>due to computing $M(x_i)$ takes $\mathcal{O}(\sqrt{x_i})$ time.</p>
+
+<p>If we choose $I = N^{1/3}$, then</p>
+
+<div>$$\begin{align*}
+\mathcal{O}(N^{1/2}I^{1/2}) &= \mathcal{O}(N^{2/3}), \text{ and }\\
+\mathcal{O}(D \log\log D) &= \tilde{\mathcal{O}}\left(\frac{N}{I}\right)
+= \tilde{\mathcal{O}}(N^{2/3}).
+\end{align*}$$</div>
+
+<p>So the optimal total complexity is $\tilde{\mathcal{O}}(N^{2/3})$.</p>
+
+<h2 id="5-another-algorithm-from-beni-bogoşel-s-blog-https-mathproblems123-wordpress-com-2018-05-10-sum-of-the-euler-totient-function">5. Another algorithm from <a href="https://mathproblems123.wordpress.com/2018/05/10/sum-of-the-euler-totient-function">Beni Bogoşel&rsquo;s blog</a></h2>
+
+<p>Applying the Mobius inversion formula to the Equation (1), we have</p>
+
+<div>$$\begin{align*}
+\frac{N(N+1)}{2} = \sum_{d=1}^N S\left( \left\lfloor\frac{N}{d}\right\rfloor \right),
+\end{align*}$$</div>
+
+<p>that is</p>
+
+<div style="font-size: 90%;">$$\begin{align}
+S(N) = \frac{N(N+1)}{2} - \sum_{d=2}^N S\left( \left\lfloor\frac{N}{d}\right\rfloor \right).
+\end{align}$$</div>
+
+<p>As we did before, let $x_i = \left\lfloor \frac{N}{i} \right\rfloor$, $2 \le i \le I \le \sqrt{N}$ and $D = x_I$.<br />
+Rewrite Equation (3) as</p>
+
+<div style="font-size: 90%;">$$\begin{align}
+S(N) = \frac{N(N+1)}{2} - \sum_{d=2}^{I-1} S(x_i) - \sum_{k=1}^D \left( \left\lfloor \frac{N}{k} \right\rfloor - \left\lfloor \frac{N}{k+1} \right\rfloor \right) S(k),
+\end{align}$$</div>
+
+<p>Moreover, to compute $S(x_i)$ we need the values $S(x_i / d)$ for $d \ge 2$.<br />
+If $x_i / d \le D$ then $S(x_i/d)$ was determined during the computation of last part of (4).
+If $x_i / d &gt; D$ then $S(x_i / d) = S(x_j)$ for $j = i d &lt; I$.</p>
+
+<p>Same as our algorithm, the complexity of above algorithm is $\mathcal{O}(\sqrt{NI}) + \tilde{\mathcal{O}}(N/I)$, which can achieve optimal value $\mathcal{O}(N^{2/3})$ by taking $I = N^{1/3}$.</p>
+
+<h2 id="reference">Reference</h2>
+
+<ol>
+<li>Sum of the Euler Totient function <a href="https://mathproblems123.wordpress.com/2018/05/10/sum-of-the-euler-totient-function"><em>Beni Bogoşel&rsquo;s blog</em></a></li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">Aug 26, 2019</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">Email</span>
+    <span class="item-content">smsxgz at gmail dot com</span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/algorithm/">Algorithm</a>
+          <a href="/tags/project-euler/">Project Euler</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/game_solver/sokoban/">
+            <span class="next-text nav-default">A Sokoban solver</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="smsxgz@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.github.com/smsxgz" class="iconfont icon-github" title="github"></a>
+      <a href="http://space.bilibili.com/10148759" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://smsxgz.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">smsxgz</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
