@@ -6,10 +6,30 @@
     <description>Recent content in Posts on Blog of smsxgz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 26 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 28 Aug 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://smsxgz.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Period of out-shuffle</title>
+      <link>https://smsxgz.github.io/post/math/out_shuffle/</link>
+      <pubDate>Wed, 28 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/post/math/out_shuffle/</guid>
+      <description>&lt;p&gt;An out-shuffle is a riffle shuffle in which the top half of the deck is taken in the left hand and cards are then alternatively interleaved from left and right hands with preserving the location of the top and bottom card of the deck.&lt;/p&gt;
+
+&lt;p&gt;Suppose a deck of size $6$ originally arranged as $(1, 2, 3, 4, 5, 6)$. After an out-shuffle, the deck will become $(1, 4, 2, 5, 3, 6)$.&lt;/p&gt;
+
+&lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;Period of out-shuffle&lt;/p&gt;
+  &lt;p&gt;Let $n$ is an even integer and $s(n)$ be the minimum number of out-shuffles needed to restore a deck of size $n$ to its original order. Then we have&lt;/p&gt;
+
+&lt;div&gt;$$\begin{equation*}
+s(n) = \min_{m} \{ m : 2^m \equiv 1 (\bmod n - 1)  \}.
+\end{equation*}$$&lt;/div&gt;
+
+&lt;/div&gt;</description>
+    </item>
     
     <item>
       <title>Sum of the Euler Totient function</title>
