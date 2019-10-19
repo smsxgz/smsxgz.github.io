@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Blog of smsxgz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 18 Oct 2019 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://smsxgz.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Interesting problems (2)</title>
+      <link>https://smsxgz.github.io/post/amm/problems_2/</link>
+      <pubDate>Fri, 18 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/post/amm/problems_2/</guid>
+      <description>&lt;p&gt;Following are some interesting problems from &lt;strong&gt;&lt;em&gt;The American Mathematical Monthly&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;Real infinite series&lt;/em&gt;&lt;/strong&gt;(2006).&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Period of out-shuffle</title>
@@ -82,11 +91,11 @@ Following proof is from Hidetoshi Komiya [1].&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Interesting problems from AMM</title>
-      <link>https://smsxgz.github.io/post/amm/problems_from_amm/</link>
+      <title>Interesting problems</title>
+      <link>https://smsxgz.github.io/post/amm/problems/</link>
       <pubDate>Tue, 05 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://smsxgz.github.io/post/amm/problems_from_amm/</guid>
+      <guid>https://smsxgz.github.io/post/amm/problems/</guid>
       <description>&lt;p&gt;Following are some interesting problems from &lt;em&gt;The American Mathematical Monthly&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     

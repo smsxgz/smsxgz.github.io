@@ -3,6 +3,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://smsxgz.github.io/post/amm/problems_2/</loc>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://smsxgz.github.io/post/math/out_shuffle/</loc>
     <lastmod>2019-08-29T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -31,8 +38,8 @@
   </url>
   
   <url>
-    <loc>https://smsxgz.github.io/post/amm/problems_from_amm/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <loc>https://smsxgz.github.io/post/amm/problems/</loc>
+    <lastmod>2019-10-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -86,7 +93,7 @@
   
   <url>
     <loc>https://smsxgz.github.io/tags/amm/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -100,7 +107,7 @@
   
   <url>
     <loc>https://smsxgz.github.io/</loc>
-    <lastmod>2019-08-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -141,7 +148,7 @@
   
   <url>
     <loc>https://smsxgz.github.io/post/</loc>
-    <lastmod>2019-08-29T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -155,14 +162,14 @@
   
   <url>
     <loc>https://smsxgz.github.io/tags/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://smsxgz.github.io/tags/problem-set/</loc>
-    <lastmod>2019-03-05T00:00:00+00:00</lastmod>
+    <lastmod>2019-10-19T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

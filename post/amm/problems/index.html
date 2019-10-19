@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>A Sokoban solver - Blog of smsxgz</title>
+  <title>Interesting problems - Blog of smsxgz</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,9 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="smsxgz" /><meta name="description" content="A Sokoban solver in Python.
-
-The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban.
+<meta name="author" content="smsxgz" /><meta name="description" content="Following are some interesting problems from The American Mathematical Monthly.
 " />
 
 
@@ -29,7 +27,7 @@ The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/
 <meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
 
 
-<link rel="canonical" href="https://smsxgz.github.io/post/game_solver/sokoban/" />
+<link rel="canonical" href="https://smsxgz.github.io/post/amm/problems/" />
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -41,39 +39,27 @@ The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/
 <link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
 
 
-<meta property="og:title" content="A Sokoban solver" />
-<meta property="og:description" content="A Sokoban solver in Python.
-
-
-
-The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban." />
+<meta property="og:title" content="Interesting problems" />
+<meta property="og:description" content="Following are some interesting problems from The American Mathematical Monthly." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://smsxgz.github.io/post/game_solver/sokoban/" />
-<meta property="article:published_time" content="2019-05-01T00:00:00&#43;00:00"/>
-<meta property="article:modified_time" content="2019-05-04T00:00:00&#43;00:00"/>
+<meta property="og:url" content="https://smsxgz.github.io/post/amm/problems/" />
+<meta property="article:published_time" content="2019-03-05T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2019-10-18T00:00:00&#43;00:00"/>
 
-<meta itemprop="name" content="A Sokoban solver">
-<meta itemprop="description" content="A Sokoban solver in Python.
-
-
-
-The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban.">
+<meta itemprop="name" content="Interesting problems">
+<meta itemprop="description" content="Following are some interesting problems from The American Mathematical Monthly.">
 
 
-<meta itemprop="datePublished" content="2019-05-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-05-04T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="305">
+<meta itemprop="datePublished" content="2019-03-05T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-18T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="381">
 
 
 
-<meta itemprop="keywords" content="Game Solver,python," />
+<meta itemprop="keywords" content="problem set," />
 <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="A Sokoban solver"/>
-<meta name="twitter:description" content="A Sokoban solver in Python.
-
-
-
-The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban."/>
+<meta name="twitter:title" content="Interesting problems"/>
+<meta name="twitter:description" content="Following are some interesting problems from The American Mathematical Monthly."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -136,10 +122,10 @@ The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">A Sokoban solver</h1>
+      <h1 class="post-title">Interesting problems</h1>
 
       <div class="post-meta">
-        <span class="post-time"> May 1, 2019 </span>
+        <span class="post-time"> Mar 5, 2019 </span>
         
         
       </div>
@@ -154,9 +140,9 @@ The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/
 <ul>
 <li>
 <ul>
-<li><a href="#normalized-player-position">Normalized player position</a></li>
-<li><a href="#deadlocks">Deadlocks</a></li>
-<li><a href="#a-search-algorithm">A* search algorithm</a></li>
+<li><a href="#problem-1">Problem 1</a></li>
+<li><a href="#problem-2">Problem 2</a></li>
+<li><a href="#problem-3">Problem 3</a></li>
 <li><a href="#reference">Reference</a></li>
 </ul></li>
 </ul></li>
@@ -165,49 +151,83 @@ The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/
   </div>
 </div>
     <div class="post-content">
-      <p>A Sokoban solver in Python.</p>
+      <p>Following are some interesting problems from <em>The American Mathematical Monthly</em>.</p>
 
-<p><center><img src="/figure/5.1/out_001.png" alt="drawing" style="width:500px;"/></center></p>
+<h3 id="problem-1">Problem 1</h3>
 
-<p>The codes can be found in <a href="https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban">https://github.com/smsxgz/dailyprogrammer/tree/master/puzzlerama/sokoban</a>.</p>
+<p>See <a href="https://www.tandfonline.com/doi/pdf/10.1080/00029890.2018.1470415">https://www.tandfonline.com/doi/pdf/10.1080/00029890.2018.1470415</a>.</p>
 
-<p>In following, we introduce some details in our implement of Sokoban solver.</p>
+<p>Let $f$ be a $C^1$ real-valued function on $[0, 1]$, infinitely differentiable at $x=0$, and such that $f^{(n)}(0) = 0$ for every $n \in \mathbb{N}$. If</p>
 
-<h3 id="normalized-player-position">Normalized player position</h3>
+<div>$$
+|xf'(x)| \le C \cdot |f(x)| \text{ for some } C > 0 \text{ and every } x \in [0, 1],
+$$</div>
 
-<p>Consider that two states is equivalent if the boxes are at the same positions and the player positions are in the same player access area, so we can only store normalized player position. We use positions of boxes and top-left reachable position as our state to reduce the number of states in the search tree.</p>
+<p>then $f(x) = 0$ for every $x \in [0, 1]$.</p>
 
-<h3 id="deadlocks">Deadlocks</h3>
+<p><strong><em>Hint:</em></strong>
+Use</p>
 
-<p>We only consider the simple deadlocks from which a box never can be pushed to a goal, no matter where the other boxes are located in the board. Once we push a box into a square which is a deadlock, the state becomes unsolvable immediately.</p>
+<div>$$
+(x^{-a-1}f^2(x))' = -(a+1)x^{-a-2}f^2(x) + 2x^{-a-1}f(x)f'(x)
+$$</div>
 
-<p>We detect the simple deadlocks by searching all squares where we can <strong>pull</strong> a box from one of the goals to. A simple breadth-first-searching is enough.</p>
+<p><br></p>
 
-<h3 id="a-search-algorithm">A* search algorithm</h3>
+<h3 id="problem-2">Problem 2</h3>
 
-<p>We use a Fibonacci heap for the priority queue required in A* search algorithm. For each state, we store the information, including box positions, normalized player position, reachable position, available moves, f-score, g-score, in a node of the heap and employ a dictionary to record corresponding pointer to the corresponding node.</p>
+<p>See <a href="https://www.tandfonline.com/doi/pdf/10.1080/00029890.2018.1507205">https://www.tandfonline.com/doi/pdf/10.1080/00029890.2018.1507205</a>.</p>
 
-<p>It worth noting that <strong>standard</strong> binary heap, leftist heap and binomial heap are not qualified for the work here. In standard leftist heap or binomial heap, if we decrease value of a node, we may need to swap the value of some nodes instead of nodes themselves to fix the heap. Of course we can modify standard leftist heap or binomial heap to reach our needs, for example we can apply doubly linked list instead of singly linked list in standard binomial heap to make exchange nodes directly possible.</p>
+<p>Let $D$ be a convex subset of a real vector space, and $f: D\rightarrow \mathbb{R} \cup \{+\infty\}$ be a radially lower semicontinuous function, that is,
+$$f(x) \le \liminf\limits_{t \rightarrow 0} f(x + t (y - x)).$$
+Then $f$ is convex iff for all $x, y \in D$, there exsits $\lambda = \lambda(x, y) \in (0, 1)$ that satisfies inequality
+$$f(\lambda x + (1-\lambda) y) \le \lambda f(x) + (1-\lambda) f(y).$$</p>
 
-<p><br>
-<center><img src="/figure/5.1/sample.gif" alt="drawing" style="width:500px;"/></center></p>
+<p><strong><em>Hint:</em></strong>
+Fix $x, y \in D$ and define the set
+$$ S \triangleq \{\lambda \in [0,1]: f(\lambda x + (1-\lambda) y) \le \lambda f(x) + (1-\lambda) f(y)\}. $$
+Prove that<br />
+(a) $S$ is a nonempty compact subset of $[0, 1]$.<br />
+(b) $(\lambda_1, \lambda_2) \cap S \neq \emptyset$ for all $\lambda_1, \lambda_2 \in S$ with $\lambda_1 &lt; \lambda_2$.</p>
+
+<p><br></p>
+
+<h3 id="problem-3">Problem 3</h3>
+
+<p>See <a href="https://www.tandfonline.com/doi/pdf/10.1080/00029890.2019.1537761">https://www.tandfonline.com/doi/pdf/10.1080/00029890.2019.1537761</a>.</p>
+
+<p>Let $\{ x_n \}$ be a positive nonincreasing real sequence such that</p>
+
+<div>$$\sum_n x_n = +\infty, ~~~~ \lim_{n \rightarrow \infty} x_n = 0.$$</div>
+
+<p>Denote</p>
+
+<div>$$L \triangleq \liminf_{n \rightarrow \infty} \frac{x_{n+1}}{x_n}.$$</div>
+
+<p>Prove that<br />
+(a) if $L &gt; &frac12;$, then there exists a constant $\theta \in (0, 1)$ such that, for each $l &gt; 0$, there is a subsequence $\{ x_{n_k} \}$ for which</p>
+
+<div>$$\sum_k x_{n_k} = l \text{  and  } x_{n_k} = \mathcal{O}(\theta^k).$$</div>
+
+<p>(b) if $L &gt; \frac{\sqrt{5} - 1}{2}$, then for each $l &gt; 0$ and for each $\epsilon &gt; 0$, there exists a subsequence $\{x_{n_k}\}$ for which</p>
+
+<div>$$\sum_k x_{n_k} = l \text{  and  } x_{n_k} = \mathcal{O}(\sqrt{1 + \epsilon - L}^k).$$</div>
 
 <h3 id="reference">Reference</h3>
 
-<ol>
-<li><a href="http://sokobano.de/wiki/index.php?title=Solver">http://sokobano.de/wiki/index.php?title=Solver</a></li>
-<li><a href="http://sokobano.de/wiki/index.php?title=How_to_detect_deadlocks">http://sokobano.de/wiki/index.php?title=How_to_detect_deadlocks</a></li>
-<li><a href="https://blog.csdn.net/yzf0011/article/details/60574388">https://blog.csdn.net/yzf0011/article/details/60574388</a> (Fibonacci heap)</li>
-<li><a href="https://github.com/natebrennand/Sokoban">https://github.com/natebrennand/Sokoban</a></li>
-<li><a href="https://en.wikipedia.org/wiki/A*_search_algorithm">https://en.wikipedia.org/wiki/A*_search_algorithm</a></li>
-</ol>
+<p>[1] George Stoica (2018) When Must a Flat Function be Identically 0?, The
+American Mathematical Monthly, 125:7, 648-649, DOI: 10.1080/00029890.2018.1470415<br />
+[2]  Paolo Leonetti (2018) A Characterization of Convex Functions, The American
+Mathematical Monthly, 125:9, 842-844, DOI: 10.1080/00029890.2018.1507205<br />
+[3] Paolo Leonetti (2019) Convergence Rates of Subseries, The American
+Mathematical Monthly, 126:2, 163-167, DOI: 10.1080/00029890.2019.1537761</p>
     </div>
 
     <div class="post-copyright">
   
   <p class="copyright-item">
     <span class="item-title">LastMod</span>
-    <span class="item-content">May 4, 2019</span>
+    <span class="item-content">Oct 18, 2019</span>
   </p>
   <p class="copyright-item">
     <span class="item-title">Email</span>
@@ -218,17 +238,16 @@ The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/
 </div>
 <footer class="post-footer">
       <div class="post-tags">
-          <a href="/tags/game-solver/">Game Solver</a>
-          <a href="/tags/python/">python</a>
+          <a href="/tags/problem-set/">problem set</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/pe/sum_of_the-euler_totient_function/">
+        <a class="prev" href="/post/math/minimax/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Sum of the Euler Totient function</span>
+            <span class="prev-text nav-default">Proof for Minimax Theorem</span>
             <span class="prev-text nav-mobile">Prev</span>
           </a>
-        <a class="next" href="/post/math/minimax/">
-            <span class="next-text nav-default">Proof for Minimax Theorem</span>
+        <a class="next" href="/post/ubuntu/convert_note/">
+            <span class="next-text nav-default">A note for command `convert`</span>
             <span class="next-text nav-mobile">Next</span>
             <i class="iconfont icon-right"></i>
           </a>
@@ -280,6 +299,14 @@ The codes can be found in https://github.com/smsxgz/dailyprogrammer/tree/master/
   <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
   <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
 <script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
 
