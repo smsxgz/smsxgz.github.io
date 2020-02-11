@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="smsxgz" /><meta name="description" content="In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem $$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$ where $A, M, L, R, x$ are both nonnegative integers such that $M &amp;gt; 0, 0 \le L \le R &amp;lt; M$ and $\text{gcd}(A, M) = 1$.
+<meta name="author" content="smsxgz" /><meta name="description" content="In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem $$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$ where $A, M, L, R, x$ are both nonnegative integers such that $0 \le L \le R &amp;lt; M$ and $\text{gcd}(A, M) = 1$.
 We use $n(\mathrm{mod}\ M)$ to denote the integer $n&amp;rsquo;$ such that $n&amp;rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&amp;rsquo; &amp;lt; M$.
 " />
 
@@ -43,7 +43,7 @@ We use $n(\mathrm{mod}\ M)$ to denote the integer $n&amp;rsquo;$ such that $n&am
 <meta property="og:title" content="An Euclidean-algorithm type algorithm" />
 <meta property="og:description" content="In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem
 $$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$
-where $A, M, L, R, x$ are both nonnegative integers such that $M &gt; 0, 0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.
+where $A, M, L, R, x$ are both nonnegative integers such that $0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.
 We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&rsquo; &lt; M$." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://smsxgz.github.io/post/math/extended_euclidean_algorithm/" />
@@ -53,13 +53,13 @@ We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo;
 <meta itemprop="name" content="An Euclidean-algorithm type algorithm">
 <meta itemprop="description" content="In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem
 $$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$
-where $A, M, L, R, x$ are both nonnegative integers such that $M &gt; 0, 0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.
+where $A, M, L, R, x$ are both nonnegative integers such that $0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.
 We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&rsquo; &lt; M$.">
 
 
 <meta itemprop="datePublished" content="2020-02-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-02-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1162">
+<meta itemprop="wordCount" content="1144">
 
 
 
@@ -68,7 +68,7 @@ We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo;
 <meta name="twitter:title" content="An Euclidean-algorithm type algorithm"/>
 <meta name="twitter:description" content="In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem
 $$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$
-where $A, M, L, R, x$ are both nonnegative integers such that $M &gt; 0, 0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.
+where $A, M, L, R, x$ are both nonnegative integers such that $0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.
 We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&rsquo; &lt; M$."/>
 
 <!--[if lte IE 9]>
@@ -158,7 +158,7 @@ We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo;
     <div class="post-content">
       <p>In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem
 <div>$$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$</div>
-where $A, M, L, R, x$ are both nonnegative integers such that $M &gt; 0, 0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.<br />
+where $A, M, L, R, x$ are both nonnegative integers such that $0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.<br />
 We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&rsquo; &lt; M$.</p>
 
 <p></br></p>
@@ -170,11 +170,11 @@ $$ ax + by = \text{gcd}(a, b). $$</p>
 
 <p>Denote the above problem by $B(a, b)$.</p>
 
-<p>Assume that $1 \le a \le b$ and $b = a q + r$ where $0 \le r &lt; a$. If $(x&rsquo;, y&rsquo;)$ such that $a x&rsquo; + r y&rsquo; = \text{gcd}(a, r)$, then we have $a (x&rsquo; - q y&rsquo;) + b y&rsquo; = \text{gcd}(a, r) = \text{gcd}(a, b - q a) = \text{gcd}(a, b)$.</p>
+<p>Assume that $1 \le a \le b$ and $b = a q + r$ where $0 \le r &lt; a$. If $x&rsquo;, y&rsquo;$ satisfy $a x&rsquo; + r y&rsquo; = \text{gcd}(a, r)$, then we have $a (x&rsquo; - q y&rsquo;) + b y&rsquo; = \text{gcd}(a, r) = \text{gcd}(a, b - q a) = \text{gcd}(a, b)$.</p>
 
 <p>That implies we can reduce the problem $B(a, b)$ to $B(a_1, b_1)$ such that $\text{gcd}(a_1, b_1) = \text{gcd}(a, b)$ and $\min\{a_1, b_1\} &lt; \min\{a, b\}$.<br />
 If $\min\{a_1, b_1\} \ge 1$, then we also can reduce the problem $B(a_1, b_1)$ to another problem $B(a_2, b_2)$ such that $\text{gcd}(a_2, b_2) = \text{gcd}(a_1, b_1) = \text{gcd}(a, b)$ and $\min\{a_2, b_2\} &lt; \min\{a_1, b_1\}$.<br />
-The procedure cannot proceed forever and will stop at step $t$ such that $\min\{a_t, b_t\} = 0$. Note that $a_t, b_t$ cannot be zero at the same time. Thus we can suppose that $a_t = 0, b_t &gt; 0$. Note that $\text{gcd}(a, b) = \text{gcd}(a_t, b_t) = b_t$, and it is easily to solve the problem $B(a_t, b_t)$.</p>
+The procedure cannot proceed forever and will stop at step $t$ such that $\min\{a_t, b_t\} = 0$. Note that $a_t, b_t$ cannot be zero at the same time. Thus we can suppose that $a_t = 0, b_t &gt; 0$. Note that $\text{gcd}(a, b) = \text{gcd}(a_t, b_t) = b_t$, and it is trivial to solve the problem $B(a_t, b_t)$.</p>
 
 <p>We can implement the algorithm that is described above as follows.</p>
 <div class="highlight"><div class="chroma">
@@ -219,9 +219,9 @@ The procedure cannot proceed forever and will stop at step $t$ such that $\min\{
 </div>
 <h2 id="algorithm-for-solving-problem-1">Algorithm for solving Problem (1)</h2>
 
-<p>Now let us turn to Problem (1). Denote the problem by $P(A, M, L, R)$.</p>
+<p>Now let us consider Problem (1). Denote the problem by $P(A, M, L, R)$.</p>
 
-<p>At first, we point out that there always exists a solution to the Problem (1). Suppose that integers $z, y$ satisfy $Az + My = 1$, and let $x = Lz(\mathrm{mod}\ M)$. Then we have $Ax \equiv LAz \equiv L (\mathrm{mod}\ M)$. Thus the set $\{ L \le Ax(\mathrm{mod}\ M) \le R \}$ is not a empty set.</p>
+<p>At first, we point out that there always exists a solution to the Problem (1). Suppose that integers $z, y$ satisfy $Az + My = 1$, and let $x = Lz(\mathrm{mod}\ M)$. Then we have $x \ge 0$ and $Ax \equiv LAz \equiv L (\mathrm{mod}\ M)$. Thus the set $\{ L \le Ax(\mathrm{mod}\ M) \le R \}$ is not empty.</p>
 
 <p>Let discuss some special cases.</p>
 
@@ -230,7 +230,7 @@ The procedure cannot proceed forever and will stop at step $t$ such that $\min\{
 <li>If $A = 0$, then $M = 1$.<br /></li>
 <li>If $M = A$, then $M = A = 1$.</li>
 <li>If $A = 1$, then $L$ is the solution to the problem $P(A, M, L, R)$.</li>
-<li>If $A &gt; M$, then according to $Ax(\mathrm{mod}\ M) = (A - M)x(\mathrm{mod}\ M)$, problems $P(A, M, L, R)$ and $P(A - M, M, L, R)$ share a same solution.</li>
+<li>If $A &gt; M$, then according to $Ax(\mathrm{mod}\ M) = (A - M)x(\mathrm{mod}\ M)$, problem $P(A, M, L, R)$ and problem $P(A - M, M, L, R)$ share a same solution.</li>
 </ul>
 
 <p>Thus we can assume that $2 \le A &lt; M$.<br />
@@ -240,15 +240,15 @@ Note that if $ \left\lfloor \frac{R}{A} \right\rfloor \ge \left\lceil \frac{L}{A
 $$ \left\lfloor \frac{L}{A} \right\rfloor \le \left\lfloor \frac{R}{A} \right\rfloor &lt; \left\lceil \frac{L}{A} \right\rceil \le \left\lfloor \frac{L}{A} \right\rfloor + 1 .$$
 Therefore, we have $\left\lfloor \frac{L}{A} \right\rfloor = \left\lfloor \frac{R}{A} \right\rfloor$. Consequently, we also have $R - L &lt; A$ and $L(\mathrm{mod}\ A) \le R(\mathrm{mod}\ A)$.</p>
 
-<p>Assume that integers $x_1, y_1, x_2, y_2$ satisfy
+<p>Next, assume that integers $x_1, y_1, x_2, y_2$ satisfy
 $$L \le A x_1 - M y_1 \le R ~\text{ amd }~ L \le A x_2 - M y_2 \le R.$$</p>
 
 <p>If $x_1 &lt; x_2$, then we have
 $$ A \le A(x_2 - x_1) \le (R + M y_2) - (L + M y_1) = (R - L) + M(y_2 - y_1) &lt; A + M(y_2 - y_1). $$</p>
 
-<p>Hence, there holds $y_1 &lt; y_2$. Similarly, if $y_1 &lt; y_2$, then we also have $x_1 &lt; x_2$.</p>
+<p>Hence, there holds $y_1 &lt; y_2$. Similarly, if $y_1 &lt; y_2$, then there also holds $x_1 &lt; x_2$.</p>
 
-<p>Moreover, if $x_0$ is the solution to Problem (1). Then exists $y_0$ such that $L \le A x_0 - M y_0 \le R$. If $y_0 &lt; 0$, then $A x_0 - M y_0 \ge A x_0 + M &gt; R$. It is apparently that $y_0 \ge 0$ and $y_0$ is the solution to the problem
+<p>Moreover, if $x_0$ is the solution to Problem (1). Then exists $y_0$ such that $L \le A x_0 - M y_0 \le R$. It is apparently that $y_0 \ge 0$ and $y_0$ is the solution to the problem
 <div>$$\begin{align} \min_y \{ y \ge 0: \exists x ~\text{s.t.}~ L \le Ax - My \le R \}. \end{align}$$</div></p>
 
 <p>Let $-M = q A + r$ where $0 \le r &lt; A$. According to $\text{gcd}(A, M) = 1$, we know that $r \ge 1$. Then we have</p>
