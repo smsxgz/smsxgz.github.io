@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>An Euclidean-algorithm type algorithm - Blog of smsxgz</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="smsxgz" /><meta name="description" content="In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem $$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$ where $A, M, L, R, x$ are both nonnegative integers such that $M &amp;gt; 0, 0 \le L \le R &amp;lt; M$ and $\text{gcd}(A, M) = 1$.
+We use $n(\mathrm{mod}\ M)$ to denote the integer $n&amp;rsquo;$ such that $n&amp;rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&amp;rsquo; &amp;lt; M$.
+" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.54.0 with even 4.0.0" />
+
+
+<link rel="canonical" href="https://smsxgz.github.io/post/math/extended_euclidean_algorithm/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link href="/lib/fancybox/jquery.fancybox-3.1.20.min.css" rel="stylesheet">
+
+
+<meta property="og:title" content="An Euclidean-algorithm type algorithm" />
+<meta property="og:description" content="In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem
+$$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$
+where $A, M, L, R, x$ are both nonnegative integers such that $M &gt; 0, 0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.
+We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&rsquo; &lt; M$." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://smsxgz.github.io/post/math/extended_euclidean_algorithm/" />
+<meta property="article:published_time" content="2020-02-11T00:00:00&#43;00:00"/>
+<meta property="article:modified_time" content="2020-02-11T00:00:00&#43;00:00"/>
+
+<meta itemprop="name" content="An Euclidean-algorithm type algorithm">
+<meta itemprop="description" content="In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem
+$$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$
+where $A, M, L, R, x$ are both nonnegative integers such that $M &gt; 0, 0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.
+We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&rsquo; &lt; M$.">
+
+
+<meta itemprop="datePublished" content="2020-02-11T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-11T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1162">
+
+
+
+<meta itemprop="keywords" content="Math," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="An Euclidean-algorithm type algorithm"/>
+<meta name="twitter:description" content="In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem
+$$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$
+where $A, M, L, R, x$ are both nonnegative integers such that $M &gt; 0, 0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.
+We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&rsquo; &lt; M$."/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">smsxgz</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">smsxgz</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">An Euclidean-algorithm type algorithm</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> Feb 11, 2020 </span>
+        
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">Contents</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#extended-euclidean-algorithm">Extended Euclidean algorithm</a></li>
+<li><a href="#algorithm-for-solving-problem-1">Algorithm for solving Problem (1)</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem
+<div>$$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$</div>
+where $A, M, L, R, x$ are both nonnegative integers such that $M &gt; 0, 0 \le L \le R &lt; M$ and $\text{gcd}(A, M) = 1$.<br />
+We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&rsquo; &lt; M$.</p>
+
+<p></br></p>
+
+<h2 id="extended-euclidean-algorithm">Extended Euclidean algorithm</h2>
+
+<p>We start with Extended Euclidean algorithm which computes coefficients of Bézout&rsquo;s identity. Formally, for two nonnegative integers $a, b$ such that $a \le b$, the goal of the algorithm is to find an integer solution $(x, y)$ to the problem
+$$ ax + by = \text{gcd}(a, b). $$</p>
+
+<p>Denote the above problem by $B(a, b)$.</p>
+
+<p>Assume that $1 \le a \le b$ and $b = a q + r$ where $0 \le r &lt; a$. If $(x&rsquo;, y&rsquo;)$ such that $a x&rsquo; + r y&rsquo; = \text{gcd}(a, r)$, then we have $a (x&rsquo; - q y&rsquo;) + b y&rsquo; = \text{gcd}(a, r) = \text{gcd}(a, b - q a) = \text{gcd}(a, b)$.</p>
+
+<p>That implies we can reduce the problem $B(a, b)$ to $B(a_1, b_1)$ such that $\text{gcd}(a_1, b_1) = \text{gcd}(a, b)$ and $\min\{a_1, b_1\} &lt; \min\{a, b\}$.<br />
+If $\min\{a_1, b_1\} \ge 1$, then we also can reduce the problem $B(a_1, b_1)$ to another problem $B(a_2, b_2)$ such that $\text{gcd}(a_2, b_2) = \text{gcd}(a_1, b_1) = \text{gcd}(a, b)$ and $\min\{a_2, b_2\} &lt; \min\{a_1, b_1\}$.<br />
+The procedure cannot proceed forever and will stop at step $t$ such that $\min\{a_t, b_t\} = 0$. Note that $a_t, b_t$ cannot be zero at the same time. Thus we can suppose that $a_t = 0, b_t &gt; 0$. Note that $\text{gcd}(a, b) = \text{gcd}(a_t, b_t) = b_t$, and it is easily to solve the problem $B(a_t, b_t)$.</p>
+
+<p>We can implement the algorithm that is described above as follows.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">Bezout</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="c1"># find x, y such that ax + by = gcd(a, b)</span>
+    <span class="c1"># a &gt;= 0, b &gt;= 0</span>
+    <span class="c1"># output: x, y, gcd(a, b)</span>
+
+    <span class="k">if</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
+
+    <span class="k">elif</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">b</span>
+    
+    <span class="k">elif</span> <span class="n">b</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">a</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="n">Bezout</span><span class="p">(</span><span class="n">b</span> <span class="o">%</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span> <span class="o">-</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">b</span> <span class="o">//</span> <span class="n">a</span><span class="p">),</span> <span class="n">x</span><span class="p">,</span> <span class="n">d</span></code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="algorithm-for-solving-problem-1">Algorithm for solving Problem (1)</h2>
+
+<p>Now let us turn to Problem (1). Denote the problem by $P(A, M, L, R)$.</p>
+
+<p>At first, we point out that there always exists a solution to the Problem (1). Suppose that integers $z, y$ satisfy $Az + My = 1$, and let $x = Lz(\mathrm{mod}\ M)$. Then we have $Ax \equiv LAz \equiv L (\mathrm{mod}\ M)$. Thus the set $\{ L \le Ax(\mathrm{mod}\ M) \le R \}$ is not a empty set.</p>
+
+<p>Let discuss some special cases.</p>
+
+<ul>
+<li>If $M = 1$, then $L = R = 0$ and $A \in \{0, 1\}$.</li>
+<li>If $A = 0$, then $M = 1$.<br /></li>
+<li>If $M = A$, then $M = A = 1$.</li>
+<li>If $A = 1$, then $L$ is the solution to the problem $P(A, M, L, R)$.</li>
+<li>If $A &gt; M$, then according to $Ax(\mathrm{mod}\ M) = (A - M)x(\mathrm{mod}\ M)$, problems $P(A, M, L, R)$ and $P(A - M, M, L, R)$ share a same solution.</li>
+</ul>
+
+<p>Thus we can assume that $2 \le A &lt; M$.<br />
+Note that if $ \left\lfloor \frac{R}{A} \right\rfloor \ge \left\lceil \frac{L}{A} \right\rceil $, it is apparently that the $\left\lceil \frac{L}{A} \right\rceil$ is the solution to the problem $P(A, M, L, R)$. In fact, for $0 \le x &lt; \left\lceil \frac{L}{A} \right\rceil$, there holds $0 \le Ax &lt; L &lt; M$. Hence we have $Ax(\mathrm{mod}\ M) = Ax &lt; L$ and $x \notin \{ L \le Ax(\mathrm{mod}\ M) \le R \}$. On the other hand, we also have $L \le A \left\lceil \frac{L}{A} \right\rceil \le A \left\lfloor \frac{R}{A} \right\rfloor \le R$.</p>
+
+<p>Now we suppose that $ \left\lfloor \frac{R}{A} \right\rfloor &lt; \left\lceil \frac{L}{A} \right\rceil $. Observe that
+$$ \left\lfloor \frac{L}{A} \right\rfloor \le \left\lfloor \frac{R}{A} \right\rfloor &lt; \left\lceil \frac{L}{A} \right\rceil \le \left\lfloor \frac{L}{A} \right\rfloor + 1 .$$
+Therefore, we have $\left\lfloor \frac{L}{A} \right\rfloor = \left\lfloor \frac{R}{A} \right\rfloor$. Consequently, we also have $R - L &lt; A$ and $L(\mathrm{mod}\ A) \le R(\mathrm{mod}\ A)$.</p>
+
+<p>Assume that integers $x_1, y_1, x_2, y_2$ satisfy
+$$L \le A x_1 - M y_1 \le R ~\text{ amd }~ L \le A x_2 - M y_2 \le R.$$</p>
+
+<p>If $x_1 &lt; x_2$, then we have
+$$ A \le A(x_2 - x_1) \le (R + M y_2) - (L + M y_1) = (R - L) + M(y_2 - y_1) &lt; A + M(y_2 - y_1). $$</p>
+
+<p>Hence, there holds $y_1 &lt; y_2$. Similarly, if $y_1 &lt; y_2$, then we also have $x_1 &lt; x_2$.</p>
+
+<p>Moreover, if $x_0$ is the solution to Problem (1). Then exists $y_0$ such that $L \le A x_0 - M y_0 \le R$. If $y_0 &lt; 0$, then $A x_0 - M y_0 \ge A x_0 + M &gt; R$. It is apparently that $y_0 \ge 0$ and $y_0$ is the solution to the problem
+<div>$$\begin{align} \min_y \{ y \ge 0: \exists x ~\text{s.t.}~ L \le Ax - My \le R \}. \end{align}$$</div></p>
+
+<p>Let $-M = q A + r$ where $0 \le r &lt; A$. According to $\text{gcd}(A, M) = 1$, we know that $r \ge 1$. Then we have</p>
+
+<div>$$\begin{align}
+\notag&\quad \min_y \{ y \ge 0: \exists x ~\text{s.t.}~ L \le Ax - My \le R \}  \\
+\notag&= \min_y \{ y \ge 0: \exists x ~\text{s.t.}~ L \le Ax + (q A + r)y \le R \} \\
+\notag&= \min_y \{ y \ge 0: \exists x ~\text{s.t.}~ L' \le A(x + q y - p) + r y \le R' \} \\
+&= \min_y \{ y \ge 0: L' \le r y (\mathrm{mod}\ A) \le R' \},
+\end{align}$$</div>
+
+<p>where $L&rsquo; = L(\mathrm{mod}\ A)$, $R&rsquo; = R(\mathrm{mod}\ A)$, $p = \left\lfloor \frac{L}{A} \right\rfloor$ and the problem (3) is just the problem $P((-M)(\mathrm{mod}\ A), A, L(\mathrm{mod}\ A), R(\mathrm{mod}\ A))$. That is a reduction just like what we did in Extended Euclidean algorithm.</p>
+
+<p>At last, We can implement above Euclidean-algorithm type algorithm as follows.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">L</span><span class="p">,</span> <span class="n">R</span><span class="p">):</span>
+    <span class="c1"># find minimum x such that L &lt;= Ax(mod M) &lt;= R</span>
+    <span class="c1"># A &gt;= 0, 0 &lt;= L &lt;= R &lt; M, gcd(A, M) = 1</span>
+
+    <span class="k">if</span> <span class="n">A</span> <span class="o">&gt;=</span> <span class="n">M</span><span class="p">:</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">%</span> <span class="n">M</span>
+
+    <span class="k">if</span> <span class="n">A</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>
+
+    <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">L</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">t</span> <span class="o">*</span> <span class="n">A</span> <span class="o">&lt;=</span> <span class="n">R</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">t</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="o">-</span><span class="n">M</span> <span class="o">%</span> <span class="n">A</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">A</span><span class="p">,</span> <span class="n">L</span> <span class="o">%</span> <span class="n">A</span><span class="p">,</span> <span class="n">R</span> <span class="o">%</span> <span class="n">A</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">M</span> <span class="o">+</span> <span class="n">L</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">x</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  
+  <p class="copyright-item">
+    <span class="item-title">LastMod</span>
+    <span class="item-content">Feb 11, 2020</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">Email</span>
+    <span class="item-content">smsxgz at gmail dot com</span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/math/">Math</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/amm/problems_2/">
+            <span class="next-text nav-default">Interesting problems (2)</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="smsxgz@gmail.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://www.github.com/smsxgz" class="iconfont icon-github" title="github"></a>
+      <a href="http://space.bilibili.com/10148759" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="https://smsxgz.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2019 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">smsxgz</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  <script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox-3.1.20.min.js"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      TeX: {equationNumbers: {autoNumber: "AMS"}},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
