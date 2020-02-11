@@ -59,7 +59,7 @@ We use $n(\mathrm{mod}\ M)$ to denote the integer $n&rsquo;$ such that $n&rsquo;
 
 <meta itemprop="datePublished" content="2020-02-11T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-02-11T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1144">
+<meta itemprop="wordCount" content="1169">
 
 
 
@@ -240,18 +240,14 @@ Note that if $ \left\lfloor \frac{R}{A} \right\rfloor \ge \left\lceil \frac{L}{A
 $$ \left\lfloor \frac{L}{A} \right\rfloor \le \left\lfloor \frac{R}{A} \right\rfloor &lt; \left\lceil \frac{L}{A} \right\rceil \le \left\lfloor \frac{L}{A} \right\rfloor + 1 .$$
 Therefore, we have $\left\lfloor \frac{L}{A} \right\rfloor = \left\lfloor \frac{R}{A} \right\rfloor$. Consequently, we also have $R - L &lt; A$ and $L(\mathrm{mod}\ A) \le R(\mathrm{mod}\ A)$.</p>
 
-<p>Next, assume that integers $x_1, y_1, x_2, y_2$ satisfy
-$$L \le A x_1 - M y_1 \le R ~\text{ amd }~ L \le A x_2 - M y_2 \le R.$$</p>
-
-<p>If $x_1 &lt; x_2$, then we have
-$$ A \le A(x_2 - x_1) \le (R + M y_2) - (L + M y_1) = (R - L) + M(y_2 - y_1) &lt; A + M(y_2 - y_1). $$</p>
-
-<p>Hence, there holds $y_1 &lt; y_2$. Similarly, if $y_1 &lt; y_2$, then there also holds $x_1 &lt; x_2$.</p>
-
-<p>Moreover, if $x_0$ is the solution to Problem (1). Then exists $y_0$ such that $L \le A x_0 - M y_0 \le R$. It is apparently that $y_0 \ge 0$ and $y_0$ is the solution to the problem
+<p>If $x_0$ is the solution to Problem (1), then exists $y_0$ such that $L \le A x_0 - M y_0 \le R$. It is apparently that $y_0 \ge 0$. Moreover, we claim that $y_0$ is the solution to the problem
 <div>$$\begin{align} \min_y \{ y \ge 0: \exists x ~\text{s.t.}~ L \le Ax - My \le R \}. \end{align}$$</div></p>
 
-<p>Let $-M = q A + r$ where $0 \le r &lt; A$. According to $\text{gcd}(A, M) = 1$, we know that $r \ge 1$. Then we have</p>
+<p>Otherwise, suppose that $0 \le y_1 &lt; y_0$ is the solution to above problem. We know there exists $x_1 \ge 0$ such that $L \le A x_1 - M y_1 \le R$. Note that $x_1 \in \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \}$ and
+$$ M \le M(y_0 - y_1) \le (A x_0 - L) - (A x_1 - R) = (R - L) + A (x_0 - x_1) &lt; M + A (x_0 - x_1). $$
+Hence, we have $x_1 &lt; x_0$ which contradicts the fact that $x_0$ is the solution to the Problem (1).</p>
+
+<p>Next, let $q, r$ satisfy $-M = q A + r$ where $0 \le r &lt; A$. According to $\text{gcd}(A, M) = 1$, we know that $r \ge 1$. Then we have</p>
 
 <div>$$\begin{align}
 \notag&\quad \min_y \{ y \ge 0: \exists x ~\text{s.t.}~ L \le Ax - My \le R \}  \\
@@ -260,7 +256,7 @@ $$ A \le A(x_2 - x_1) \le (R + M y_2) - (L + M y_1) = (R - L) + M(y_2 - y_1) &lt
 &= \min_y \{ y \ge 0: L' \le r y (\mathrm{mod}\ A) \le R' \},
 \end{align}$$</div>
 
-<p>where $L&rsquo; = L(\mathrm{mod}\ A)$, $R&rsquo; = R(\mathrm{mod}\ A)$, $p = \left\lfloor \frac{L}{A} \right\rfloor$ and the problem (3) is just the problem $P((-M)(\mathrm{mod}\ A), A, L(\mathrm{mod}\ A), R(\mathrm{mod}\ A))$. That is a reduction just like what we did in Extended Euclidean algorithm.</p>
+<p>where $L&rsquo; = L(\mathrm{mod}\ A)$, $R&rsquo; = R(\mathrm{mod}\ A)$, $p = \left\lfloor \frac{L}{A} \right\rfloor$. That implies we can reduce the problem $P(A, M, L, R)$ to Problem (3), which is the problem $P((-M)(\mathrm{mod}\ A), A, L(\mathrm{mod}\ A), R(\mathrm{mod}\ A))$, just like what we did in Extended Euclidean algorithm.</p>
 
 <p>At last, We can implement above Euclidean-algorithm type algorithm as follows.</p>
 <div class="highlight"><div class="chroma">
