@@ -6,10 +6,22 @@
     <description>Recent content in Algorithm on Blog of smsxgz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 26 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://smsxgz.github.io/tags/algorithm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An Euclidean-algorithm type algorithm</title>
+      <link>https://smsxgz.github.io/post/math/extended_euclidean_algorithm/</link>
+      <pubDate>Tue, 11 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/post/math/extended_euclidean_algorithm/</guid>
+      <description>&lt;p&gt;In this article, we introduce an Euclidean-algorithm type algorithm for solving following problem
+&lt;div&gt;$$\begin{align} \min_{x} \{x \ge 0: L \le Ax(\mathrm{mod}\ M) \le R \} ,\end{align}$$&lt;/div&gt;
+where $A, M, L, R, x$ are both nonnegative integers such that $0 \le L \le R &amp;lt; M$ and $\text{gcd}(A, M) = 1$.&lt;br /&gt;
+We use $n(\mathrm{mod}\ M)$ to denote the integer $n&amp;rsquo;$ such that $n&amp;rsquo; \equiv n (\mathrm{mod}\ M)$ and $0 \le n&amp;rsquo; &amp;lt; M$.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Sum of the Euler Totient function</title>

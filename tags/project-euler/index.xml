@@ -6,10 +6,38 @@
     <description>Recent content in Project Euler on Blog of smsxgz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 26 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://smsxgz.github.io/tags/project-euler/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>An elegant result</title>
+      <link>https://smsxgz.github.io/post/math/an_elegant_result/</link>
+      <pubDate>Wed, 12 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://smsxgz.github.io/post/math/an_elegant_result/</guid>
+      <description>&lt;p&gt;Let $A, M$ be two positive integers such that $A &amp;lt; M$.&lt;/p&gt;
+
+&lt;p&gt;Define the sequence $\{c_n\}$ satisfies $0 \le c_n &amp;lt; M$ and $c_n \equiv A n (\mathrm{mod}\ M)$ for $n \ge 1$.&lt;/p&gt;
+
+&lt;p&gt;Moreover let $n_1 = 1$ and if $c_{n_k} &amp;gt; 0$, we define&lt;/p&gt;
+
+&lt;div&gt;$$ n_{k + 1} = \min \{n &gt; n_k: n &gt; n_k, c_n &lt; c_{n_k} \}. $$&lt;/div&gt;
+
+&lt;p&gt;Hence $A n_{k+1}$ is the first positive multiple of $A$ that yields a residual less than $c_{n_k}$.&lt;/p&gt;
+
+&lt;p&gt;Following theorem shows the recurrence relation of the sequence $\{n_k\}$.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;Theorem&lt;/p&gt;
+  &lt;p&gt;Suppose that $c_{n_{k+1}} &amp;gt; 0$, then we have&lt;/p&gt;
+
+&lt;div&gt;$$\begin{align} n_{k+2} = \left\lceil \frac{c_{n_k}}{c_{n_{k+1}}} \right\rceil n_{k+1} - n_k. \end{align}$$&lt;/div&gt;
+
+&lt;/div&gt;
+&lt;br&gt;
+Following proof is based on the proof of &lt;a href=&#34;https://projecteuler.net/thread=700;page=2#349143&#34;&gt;brob26&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Sum of the Euler Totient function</title>
