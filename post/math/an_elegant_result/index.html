@@ -97,7 +97,7 @@ Following proof is based on the proof of brob26.">
 
 <meta itemprop="datePublished" content="2020-02-12T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-02-12T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="346">
+<meta itemprop="wordCount" content="342">
 
 
 
@@ -238,28 +238,28 @@ A (\alpha n_{k+1} - n_k)
 0 = \frac{c_{n_k}}{c_{n_{k+1}}} c_{n_{k+1}} - c_{n_k} \le \left\lceil \frac{c_{n_k}}{c_{n_{k+1}}} \right\rceil c_{n_{k+1}} - c_{n_k} < \left( \frac{c_{n_k}}{c_{n_{k+1}}} + 1\right) c_{n_{k+1}} - c_{n_k} = c_{n_{k+1}}.
 \end{align}$$</div>
 
-<p>The by the definition of $n_{k+2}$, we know that $n_{k+2} \le \alpha n_{k+1} - n_k$.</p>
+<p>Then by the definition of $n_{k+2}$, we know that $n_{k+2} \le \alpha n_{k+1} - n_k$.</p>
 
-<p>Next, we will show that for $1 \le t \le \alpha$, we have $n_{k+2} - t n_{k+1} + n_k \ge 0$.</p>
+<p>Next, we will show that for $1 \le t \le \alpha$, there holds $n_{k+2} - t n_{k+1} + n_k \ge 0$.</p>
 
-<p>For $t = 1$, we have $n_{k+2} - n_{k+1} + n_k \ge 0$ apparently. Now assume that for $1 \le t &lt; \alpha$ we have $n_{k+2} - t n_{k+1} + n_k \ge 0$.</p>
+<p>For $t = 1$, $n_{k+2} - n_{k+1} + n_k \ge 0$ holds apparently. Furthermore, assume that for $1 \le t &lt; \alpha$ we have $n_{k+2} - t n_{k+1} + n_k \ge 0$.</p>
 
-<p>Observe that</p>
+<p>Now observe that</p>
 
 <div>$$\begin{align}
 A (n_{k+2} - t n_{k+1} + n_k) \equiv c_{n_{k+2}} - t c_{n_{k+1}} + c_{n_k} ~~(\mathrm{mod}\ M).
 \end{align}$$</div>
 
 <p>Since $t c_{n_{k+1}} \ge c_{n_{k+1}} &gt; c_{n_{k+2}}$, we have $c_{n_{k+2}} - t c_{n_{k+1}} + c_{n_k} &lt; c_{n_k}$.<br />
-Furthermore, we also have</p>
+And, we also have</p>
 
 <div>$$\begin{align}
 c_{n_{k+2}} - t c_{n_{k+1}} + c_{n_k} \ge - (\alpha - 1) c_{n_{k+1}} + c_{n_k} > 0.
 \end{align}$$</div>
 
-<p>Thus we have $n_{k+2} - t n_{k+1} + n_k &gt; 0$. Then by the definition of $n_{k+1}$, we must have $n_{k+1} \le n_{k+2} - t n_{k+1} + n_k$, i.e., $n_{k+2} - (t+1) n_{k+1} + n_k \ge 0$.</p>
+<p>Thus $n_{k+2} - t n_{k+1} + n_k &gt; 0$. Then by the definition of $n_{k+1}$, we must have $n_{k+1} \le n_{k+2} - t n_{k+1} + n_k$, i.e., $n_{k+2} - (t+1) n_{k+1} + n_k \ge 0$.</p>
 
-<p>Consequently, we have $n_{k+2} - \alpha n_{k+1} + n_k \ge 0$, or equivalently $n_{k+2} \ge \alpha n_{k+1} - n_k$.</p>
+<p>Consequently, $n_{k+2} - \alpha n_{k+1} + n_k \ge 0$, or equivalently $n_{k+2} \ge \alpha n_{k+1} - n_k$.</p>
 
 <p>As a conclusion, there holds $n_{k+2} = \alpha n_{k+1} - n_k$.</p>
 
