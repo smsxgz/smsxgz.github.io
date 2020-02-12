@@ -23,13 +23,13 @@
 
 &lt;p&gt;Moreover let $n_1 = 1$ and if $c_{n_k} &amp;gt; 0$, we define&lt;/p&gt;
 
-&lt;div&gt;$$ n_{k + 1} = \min \{n &gt; n_k: n &gt; n_k, c_n &lt; c_{n_k} \}. $$&lt;/div&gt;
+&lt;div&gt;$$ n_{k + 1} = \min \{n: n &gt; n_k, c_n &lt; c_{n_k} \}. $$&lt;/div&gt;
 
 &lt;p&gt;Hence $A n_{k+1}$ is the first positive multiple of $A$ that yields a residual less than $c_{n_k}$.&lt;/p&gt;
 
 &lt;p&gt;Following theorem shows the recurrence relation of the sequence $\{n_k\}$.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;Theorem&lt;/p&gt;
+&lt;p&gt;&lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;Theorem 1&lt;/p&gt;
   &lt;p&gt;Suppose that $c_{n_{k+1}} &amp;gt; 0$, then we have&lt;/p&gt;
 
 &lt;div&gt;$$\begin{align} n_{k+2} = \left\lceil \frac{c_{n_k}}{c_{n_{k+1}}} \right\rceil n_{k+1} - n_k. \end{align}$$&lt;/div&gt;
